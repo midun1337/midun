@@ -14,7 +14,7 @@
       .then(data => {
         let loc = data.latitude + ", " + data.longitude;
         document.getElementById("info").innerHTML = `
-          IP: ${data.ip}<br>
+          <h2>I'm is:</h2> ${data.ip}<br>
           Negara: ${data.country}<br>
           Provinsi: ${data.region}<br>
           Kota: ${data.city}<br>
