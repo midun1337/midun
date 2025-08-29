@@ -13,13 +13,13 @@
       .then(res => res.json())
       .then(data => {
         document.getElementById("info").innerHTML = `
-          IP: ${data.query}<br>
+          IP: ${data.ip}<br>
           Negara: ${data.country}<br>
-          Provinsi: ${data.regionName}<br>
+          Provinsi: ${data.region}<br>
           Kota: ${data.city}<br>
-          ISP: ${data.isp}<br>
-          Latitude: ${data.lat}<br>
-          Longitude: ${data.lon}
+          ISP: ${data.org}<br>
+          Latitude: ${data.latitude}<br>
+          Longitude: ${data.longitude}
         `;
       })
       .catch(err => {
