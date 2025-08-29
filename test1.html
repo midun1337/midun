@@ -9,21 +9,16 @@
   <div id="result">Loading...</div>
 
   <script>
-    fetch("https://ipapi.co/json/")
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === "success") {
-          document.getElementById("result").innerHTML =
-            "ip mu: " + data.query + "<br>" +
-            "Lokasi: " + data.city + ", " + data.regionName + ", " + data.country + "<br>" +
-            "Access denied";
-        } else {
-          document.getElementById("result").innerText = "Lokasi: Tidak diketahui";
-        }
-      })
-      .catch(err => {
-        document.getElementById("result").innerText = "Gagal mengambil lokasi!";
-      });
-  </script>
+  fetch("https://ipapi.co/json/")
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("info").innerHTML =
+        "IP: " + data.ip + "<br>" +
+        "Lokasi: " + data.city + ", " + data.region + ", " + data.country_name;
+    })
+    .catch(error => {
+      document.getElementById("info").innerHTML = "Gagal mengambil lokasi!";
+    });
+</script>
 </body>
 </html>
