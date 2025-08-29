@@ -12,14 +12,14 @@
     fetch("https://ipapi.co/json/")
       .then(res => res.json())
       .then(data => {
+        let loc = data.latitude + ", " + data.longitude;
         document.getElementById("info").innerHTML = `
           IP: ${data.ip}<br>
           Negara: ${data.country}<br>
           Provinsi: ${data.region}<br>
           Kota: ${data.city}<br>
           ISP: ${data.org}<br>
-          Latitude: ${data.latitude}<br>
-          Longitude: ${data.longitude}
+          Loc: ${loc}<br>
         `;
       })
       .catch(err => {
