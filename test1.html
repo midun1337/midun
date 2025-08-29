@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Cek IP & Lokasi</title>
+</head>
+<body>
+  <h2>Informasi Pengunjung</h2>
+  <div id="result">Loading...</div>
+
+  <script>
+    fetch("http://ip-api.com/json/?fields=status,message,country,regionName,city,query")
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === "success") {
+          document.getElementById("result").innerHTML =
+            "ip mu: " + data.query + "<br>" +
+            "Lokasi: " + data.city + ", " + data.regionName + ", " + data.country + "<br>" +
+            "Access denied";
+        } else {
+          document.getElementById("result").innerText = "Lokasi: Tidak diketahui";
+        }
+      })
+      .catch(err => {
+        document.getElementById("result").innerText = "Gagal mengambil lokasi!";
+      });
+  </script>
+</body>
+</html>
