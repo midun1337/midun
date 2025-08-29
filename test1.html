@@ -9,16 +9,22 @@
   <div id="info">Loading...</div>
 
   <script>
-  fetch("https://ipapi.co/json/")
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById("info").innerHTML =
-        "IP: " + data.ip + "<br>" +
-        "Lokasi: " + data.city + ", " + data.region + ", " + data.country_name;
-    })
-    .catch(error => {
-      document.getElementById("info").innerHTML = "Gagal mengambil lokasi!";
-    });
-</script>
+    fetch("http://ip-api.com/json/")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("info").innerHTML = `
+          IP: ${data.query}<br>
+          Negara: ${data.country}<br>
+          Provinsi: ${data.regionName}<br>
+          Kota: ${data.city}<br>
+          ISP: ${data.isp}<br>
+          Latitude: ${data.lat}<br>
+          Longitude: ${data.lon}
+        `;
+      })
+      .catch(err => {
+        document.getElementById("info").innerHTML = "Gagal mengambil lokasi!";
+      });
+  </script>
 </body>
 </html>
