@@ -32,8 +32,8 @@ body {
       .then(data => {
         let loc = data.latitude + ", " + data.longitude;
         document.getElementById("info").innerHTML = `
-          <h2>I'm is: ${data.ip}</h2>
-          Negara: ${data.country}<br>
+          <h2>I'm is : ${data.ip}</h2>
+          Negara: ${data.country_name}<br>
           Provinsi: ${data.region}<br>
           Kota: ${data.city}<br>
           ISP: ${data.org}<br>
