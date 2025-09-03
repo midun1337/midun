@@ -1,5 +1,6 @@
     function tampilkanData(ipData, gpsData = null) {
       let output = `
+        <b>Who?</b>
         <b>IP :</b> ${ipData.ip}<br>
         <b>Negara :</b> ${ipData.country_name}<br>
         <b>Provinsi :</b> ${ipData.region}<br>
