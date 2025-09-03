@@ -24,8 +24,7 @@
         (pos) => {
           let loc = pos.coords.latitude + ", " + pos.coords.longitude;
           document.getElementById("info").innerHTML = `
-            <b>Lokasi Akurat (GPS/Device)</b><br>
-            Lat, Long: ${loc}<br>
+            <h2>I'm is ${loc}</h2><br>
             Akurasi: ${pos.coords.accuracy} meter<br>
           `;
         },
