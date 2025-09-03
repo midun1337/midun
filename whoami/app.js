@@ -22,10 +22,10 @@
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
+          let loc = pos.coords.latitude + ", " + pos.coords.longitude;
           document.getElementById("info").innerHTML = `
             <b>Lokasi Akurat (GPS/Device)</b><br>
-            Latitude: ${pos.coords.latitude}<br>
-            Longitude: ${pos.coords.longitude}<br>
+            Lat, Long: ${loc}<br>
             Akurasi: ${pos.coords.accuracy} meter<br>
           `;
         },
