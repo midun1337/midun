@@ -1,23 +1,24 @@
-function tampilkanDataIP() {
+ // --- fallback IP lookup ---
+    function fallbackIP() {
       fetch("https://ipapi.co/json/")
         .then(res => res.json())
         .then(data => {
           document.getElementById("info").innerHTML = `
             <b>Lokasi Perkiraan (IP)</b><br>
-            IP: ${data.ip}<br>
+            IP Publik: ${data.ip}<br>
             Negara: ${data.country_name}<br>
             Provinsi: ${data.region}<br>
             Kota: ${data.city}<br>
             ISP: ${data.org}<br>
-            Lat,Long: ${data.latitude}, ${data.longitude}<br>
+            Lat, Long: ${data.latitude}, ${data.longitude}<br>
           `;
         })
         .catch(() => {
-          document.getElementById("info").innerHTML = "Gagal mengambil lokasi IP!";
+          document.getElementById("info").innerHTML = "Gagal mengambil lokasi (IP).";
         });
     }
 
-    // coba minta lokasi akurat (akan munculkan pop-up)
+    // --- coba GPS dulu ---
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
@@ -29,10 +30,14 @@ function tampilkanDataIP() {
           `;
         },
         (err) => {
-          // kalau ditolak / error → fallback ke ipapi
-          tampilkanDataIP();
-        }
+          document.getElementById("info").innerHTML = `
+            Gagal GPS (${err.message})<br>
+            Menggunakan fallback IP...<br><br>
+          `;
+          fallbackIP();
+        },
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 } // opsi GPS
       );
     } else {
-      tampilkanDataIP();
+      fallbackIP();
     }
