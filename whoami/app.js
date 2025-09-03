@@ -4,8 +4,8 @@
         .then(res => res.json())
         .then(data => {
           document.getElementById("info").innerHTML = `
-            <b>Lokasi Perkiraan (IP)</b><br>
-            IP Publik: ${data.ip}<br>
+            <b>Who?</b><br>
+            IP: ${data.ip}<br>
             Negara: ${data.country_name}<br>
             Provinsi: ${data.region}<br>
             Kota: ${data.city}<br>
@@ -24,9 +24,9 @@
         (pos) => {
           let loc = pos.coords.latitude + ", " + pos.coords.longitude;
           document.getElementById("info").innerHTML = `
-            <h2>I'm is </h2><br>
-            <b>${loc}</b><br>
-            Akurasi: ${pos.coords.accuracy} meter<br>
+            <b>I'm is </b><br>
+            Loc: ${loc}<br>
+            Acc: ${pos.coords.accuracy} meter<br>
           `;
         },
         (err) => {
