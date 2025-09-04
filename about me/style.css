@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  color: #111;
+  font-family: 'Quicksand',sans-serif;
+}
+
+.layout {
+  width: 100%;
+  height: 100vh; /* full layar */
+  display: grid;
+  grid:
+    "bar" 10%
+    "body" 90%
+    / 100%;
+}
+
+.bar {
+  background-color: #111827;
+  width: 100vw;
+  display: flex;
+  align-items: center;      
+  justify-content: space-between; 
+  padding: 0 20px;
+  grid-area: bar;
+}
+/* pict */
+.pict {
+color: #E5E7EB;
+}
+.pict p {
+	cursor: pointer;
+	color: #E5E7EB;
+}
+/* subs */
+.subs {
+  display: flex;
+  margin-left: auto;
+}
+.subs p {
+	cursor: pointer;
+	color: #E5E7EB;
+}
+.subs p:hover {
+  color: #3B82F6;
+}
+/* others */
+.body {
+  grid-area: body;
+}
+
+p {
+  text-align: center;
+  margin-right: 30px;
+}
+h2 {
+	font-size: 3rem;
+}
+/* content */
+#content {
+  max-width: 600px;
+  text-align: center;
+}
+
+#content h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+
+#content p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-sub);
+  line-height: 1.5;
+  margin: 0;
+}
+
+
+/* teks keluar ke kiri */
+.slide-out-left {
+  animation: slideOutLeft 0.5s forwards;
+}
+
+/* teks masuk dari kanan */
+.slide-in-right {
+  animation: slideInRight 0.5s forwards;
+}
+
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-100px); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+ 
